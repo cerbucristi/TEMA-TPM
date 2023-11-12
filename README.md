@@ -1,2 +1,4 @@
 # TEMA-TPM
-TEMA TPM - Implementarea temei
+Componenta echipei: 
+-Cerbu Cristi 
+-Grasu Ioan
