@@ -1,0 +1,57 @@
+-Main reason: 
+The Java documentation, however, leaves lock() outside the try block in the ReentrantLock example. 
+The reason for this is that an unchecked exception in lock() should not lead to unlock() incorrectly being called.
+
+-Good practice also:
+It is a good coding practice in general to keep things like try blocks as fine-grained as possible.
+
+
+-For example let's take the bad practice example from homework: 
+
+Let's suppose that 'someLock' implementation is similary to the ReentrantLock class implementation from java where 
+official documentation provides at least one case when an unchecked exception is thrown at run time as it follows:
+
+"This lock supports a maximum of 2147483647 recursive locks by the same thread. Attempts to exceed this limit result in Error throws from locking methods."
+
+Now let's analyze our example based on known info: 
+
+lock in cadrul try:
+
+// "lock()" itself may throw exception when the number of reentrant locks exceeds the limit.
+try {
+   someLock.lock();// throws exception, lock() failed 
+   .....
+}
+finally {
+   someLock.unlock();// unmatched release, throws exception <- as this operation will throw again inside the finally block, maybe will lead to an unwanted and untreated exception further
+}	
+
+
+-More offical addintional informations:
+Java Lock interface documentation says: 
+void lock()
+Acquires the lock.
+If the lock is not available then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired.
+
+Implementation Considerations
+
+A Lock implementation may be able to detect erroneous use of the lock, such as an invocation that would cause deadlock,
+ and may throw an (unchecked) exception in such circumstances. The circumstances and the exception type must be documented by that Lock implementation.
+
+Java ReentrantLock class documentation says: 
+It is recommended practice to always immediately follow a call to lock with a try block, most typically in a before/after construction such as:
+
+  
+ class X {
+   private final ReentrantLock lock = new ReentrantLock();
+   // ...
+
+   public void m() {
+     lock.lock();  // block until condition holds
+     try {
+       // ... method body
+     } finally {
+       lock.unlock()
+     }
+   }
+ }
