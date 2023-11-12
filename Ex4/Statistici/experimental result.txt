@@ -1,0 +1,47 @@
+Free lock queue:
+Deq item: 1
+Deq item: 2
+Deq item: 3
+Deq item: 4
+LockFree{head=4, tail=4, items=[1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+Single lock queue:
+Deq item: 1
+Deq item: 1
+Deq item: 2
+Deq item: 3
+Deq item: 4
+Deq item: 1
+Deq item: 2
+Deq item: 3
+Deq item: 4
+Deq item: 1
+Deq item: 2
+Deq item: 3
+Deq item: 4
+Deq item: 2
+Deq item: 3
+Deq item: 4
+SingleLockBased{head=16, tail=16, items=[1, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], lock=java.util.concurrent.locks.ReentrantLock@2d3fcdbd[Unlocked]}
+Double lock queue:
+Deq item: 1
+Deq item: 3
+Deq item: 2
+Deq item: 2
+Deq item: 4
+Deq item: 4
+Deq item: 1
+Deq item: 2
+Deq item: 1
+Deq item: 3
+Deq item: 4
+Deq item: 3
+Deq item: 2
+Deq item: 1
+Deq item: 3
+Deq item: 4
+DoubleLockBased{head=16, tail=16, items=[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], enqlock=java.util.concurrent.locks.ReentrantLock@6a024a67[Unlocked], deqlock=java.util.concurrent.locks.ReentrantLock@7921b0a2[Unlocked]}
+Another Double Lock exemple: 
+Double lock queue:
+DoubleLockBased{head=20, tail=20, items=[1, 2, 7, 3, 8, 5, 2, 9, 7, 6]
+, allItems=    [3, 5, 8, 8, 7, 8, 6, 8, 1, 3, 1, 2, 7, 3, 8, 5, 2, 9, 7, 6]
+, dequed Items=[3, 5, 8, 8, 7, 8, 6, 8, 1, 3, 1, 2, 7, 3, 8, 5, 2, 9, 7, 6]
