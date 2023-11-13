@@ -17,7 +17,7 @@ Apelul metodei se face in afara blocului `try` deoarece aparitia unei exceptii �
 
 #### Să luăm exemplul practic 'gresit' din tema:
 
-Să presupunem că implementarea `someLock`` este similară cu implementarea clasei `ReentrantLock` din java unde documentația oficială oferă cel puțin un caz când o excepție neverificată este aruncată în timpul execuției, după cum urmează:
+Să presupunem că implementarea `someLock` este similară cu implementarea clasei `ReentrantLock` din Java unde documentația oficială oferă cel puțin un caz când o excepție neverificată este aruncată în timpul execuției, după cum urmează:
 
 `This lock supports a maximum of 2147483647 recursive locks by the same thread. Attempts to exceed this limit result in Error throws from locking methods.`
 
